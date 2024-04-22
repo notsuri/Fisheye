@@ -33,7 +33,7 @@ function photographerTemplate(data) {
     priceElement.textContent = price + "€ /jour";
     priceElement.className = "price";
 
-    //Lien vers le portefolio
+    // Lien vers le portefolio
     // const link = document.create("a");
     // link.href = `./photographer.html?id=${id}`;
 
@@ -47,4 +47,16 @@ function photographerTemplate(data) {
     return article;
   }
   return { name, picture, getUserCardDOM };
+}
+function elementId() {
+  // Sélectionner l'élément sur lequel vous souhaitez écouter les clics
+  let element = document.getElementById("id");
+
+  // Ajouter un gestionnaire d'événements pour le clic
+  element.addEventListener("click", function (event) {
+    // Récupérer l'ID de l'élément cliqué
+    let elementId = event.target.id;
+
+    console.log("ID de l'élément cliqué :", elementId);
+  });
 }
