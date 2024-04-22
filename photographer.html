@@ -1,37 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" />
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
-    </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
-  </body>
+
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <title>Fisheye - photographe </title>
+</head>
+
+<body>
+
+
+  <header>
+    <img src="assets/images/logo.png" class="logo" />
+  </header>
+  <main id="main">
+    <div class="photograph-header">
+      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+    </div>
+  </main>
+  <div id="contact_modal">
+    <div class="modal">
+      <header>
+        <h2>Contactez-moi</h2>
+        <img src="assets/icons/close.svg" onclick="closeModal()" />
+      </header>
+
+
+
+
+
+
+      <form class="contact_form">
+        <div class="input-form">
+          <label tabindex="2" for="firstname">Prénom</label>
+          <input tabindex="3" type="text" id="firstname" placeholder="Votre prénom">
+        </div>
+        <div class="input-form">
+          <label tabindex="4" for="lastname">Nom</label>
+          <input tabindex="5" type="text" id="lastname" placeholder="Votre nom">
+        </div>
+        <div class="input-form">
+          <label tabindex="6" for="email">Email</label>
+          <input tabindex="7" type="email" id="email" placeholder="Votre email" required aria-required="true">
+        </div>
+        <div class="input-form">
+          <label tabindex="8" for="message">Votre message</label>
+          <textarea tabindex="9" name="message" id="message" rows="10" placeholder="Votre message" required
+            aria-required="true"></textarea>
+        </div>
+        <button class="form-btn" tabindex="10">Envoyer</button>
+      </form>
+    </div>
+  </div>
+
+  </div>
+  </div>
+  <script src="/scripts/pages/photographer.js"></script>
+  <script src="/scripts/utils/contactForm.js"></script>
+</body>
+
 </html>
