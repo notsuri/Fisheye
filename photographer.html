@@ -17,37 +17,32 @@
   </header>
   <main id="main">
     <div class="photograph-header">
-      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      <button class="contact_button">Contactez-moi</button>
     </div>
   </main>
   <div id="contact_modal">
     <div class="modal">
       <header>
         <h2>Contactez-moi</h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
+        <img src="assets/icons/close.svg" id="close_modal" />
       </header>
-
-
-
-
-
 
       <form class="contact_form">
         <div class="input-form">
-          <label tabindex="2" for="firstname">Prénom</label>
-          <input tabindex="3" type="text" id="firstname" placeholder="Votre prénom">
+          <label for="firstname">Prénom</label>
+          <input type="text" id="firstname" placeholder="Votre Prénom">
         </div>
         <div class="input-form">
-          <label tabindex="4" for="lastname">Nom</label>
-          <input tabindex="5" type="text" id="lastname" placeholder="Votre nom">
+          <label for="lastname">Nom</label>
+          <input type="text" id="lastname" placeholder="Votre nom">
         </div>
         <div class="input-form">
-          <label tabindex="6" for="email">Email</label>
-          <input tabindex="7" type="email" id="email" placeholder="Votre email" required aria-required="true">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Votre email" required aria-required="true">
         </div>
         <div class="input-form">
-          <label tabindex="8" for="message">Votre message</label>
-          <textarea tabindex="9" name="message" id="message" rows="10" placeholder="Votre message" required
+          <label for="message">Votre message</label>
+          <textarea name="message" id="message" rows="10" placeholder="Votre message" required
             aria-required="true"></textarea>
         </div>
         <button class="form-btn" tabindex="10">Envoyer</button>

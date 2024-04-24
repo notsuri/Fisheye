@@ -20,7 +20,7 @@ function photographerTemplate(data) {
 
     //Ville et Pays
     const countryElement = document.createElement("p");
-    countryElement.textContent = city + "," + country;
+    countryElement.textContent = city + ", " + country;
     countryElement.className = "country_photographer";
 
     //Situation Pro
@@ -34,8 +34,8 @@ function photographerTemplate(data) {
     priceElement.className = "price";
 
     // Lien vers le portefolio
-    // const link = document.create("a");
-    // link.href = `./photographer.html?id=${id}`;
+    const link = document.createElement("a");
+    link.href = `./photographer.html?id=${id}`;
 
     //Rattachement au parent
     article.appendChild(img);
@@ -43,20 +43,8 @@ function photographerTemplate(data) {
     article.appendChild(countryElement);
     article.appendChild(taglineElement);
     article.appendChild(priceElement);
-    // link.appendChild(article);
-    return article;
+    link.appendChild(article);
+    return link;
   }
   return { name, picture, getUserCardDOM };
-}
-function elementId() {
-  // Sélectionner l'élément sur lequel vous souhaitez écouter les clics
-  let element = document.getElementById("id");
-
-  // Ajouter un gestionnaire d'événements pour le clic
-  element.addEventListener("click", function (event) {
-    // Récupérer l'ID de l'élément cliqué
-    let elementId = event.target.id;
-
-    console.log("ID de l'élément cliqué :", elementId);
-  });
 }
