@@ -10,16 +10,51 @@
 </head>
 
 <body>
-
-
-  <header>
-    <img src="assets/images/logo.png" class="logo" />
+  <header class="header_logo">
+    <a href="./index.html">
+      <img src="assets/images/logo.png" class="logo" alt="fisheye logo">
+    </a>
   </header>
+
   <main id="main">
-    <div class="photograph-header">
+
+    <div class="photograph_header">
+
+      <div>
+        <h1 class="photograph_title"></h1>
+        <h2 class="photograph_city"></h2>
+        <p class="photograph_tagline"></p>
+      </div>
       <button class="contact_button">Contactez-moi</button>
+      <img class="photograph_img">
+
     </div>
+
+
+    <section class="photograph_filter">
+      <label>Tier par</label>
+      <select>
+        <option>Popularité</option>
+        <option>Date</option>
+        <option>Titre</option>
+      </select>
+    </section>
+
+    <section class="photograph_medias">
+    </section>
+
+    <aside class="photograph_like">
+      <div>
+        <span class="all_likes"></span>&nbsp;
+        <span class="fa-solid fa-heart" aria-hidden="true"></span>
+      </div>
+      <div>
+        <span class="price_day"></span>&nbsp;€&nbsp;/&nbsp;jour
+      </div>
+    </aside>
   </main>
+
+
   <div id="contact_modal">
     <div class="modal">
       <header>
@@ -52,8 +87,9 @@
 
   </div>
   </div>
-  <script src="/scripts/pages/photographer.js"></script>
-  <script src="/scripts/utils/contactForm.js"></script>
+  <script src="https://kit.fontawesome.com/49bfbf4882.js" crossorigin="anonymous"></script>
+  <script type="module" src="/scripts/pages/photographer.js"></script>
+  <script type="module" src="/scripts/utils/contactForm.js"></script>
 </body>
 
 </html>

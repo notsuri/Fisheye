@@ -3,48 +3,45 @@ function photographerTemplate(data) {
 
   const picture = `assets/photographers/portrait/${portrait}`;
 
-  function getUserCardDOM() {
-    const article = document.createElement("article");
-    article.className = "card";
+  const article = document.createElement("article");
+  article.className = "card";
 
-    //Photo
-    const img = document.createElement("img");
-    img.setAttribute("src", picture);
-    img.setAttribute("alt", name);
-    img.className = "card-img";
+  // Lien vers le portefolio
+  const link = document.createElement("a");
+  link.href = `./photographer.html?id=${id}`;
 
-    //Nom
-    const h2 = document.createElement("h2");
-    h2.textContent = name;
-    h2.className = "card-title";
+  //Photo
+  const img = document.createElement("img");
+  img.setAttribute("src", picture);
+  img.setAttribute("alt", name);
+  img.className = "card-img";
 
-    //Ville et Pays
-    const countryElement = document.createElement("p");
-    countryElement.textContent = city + ", " + country;
-    countryElement.className = "country_photographer";
+  //Nom
+  const h2 = document.createElement("h2");
+  h2.textContent = name;
+  h2.className = "card-title";
+  link.appendChild(img);
+  link.appendChild(h2);
 
-    //Situation Pro
-    const taglineElement = document.createElement("p");
-    taglineElement.textContent = tagline;
-    taglineElement.className = "tagline";
+  //Ville et Pays
+  const countryElement = document.createElement("p");
+  countryElement.textContent = city + ", " + country;
+  countryElement.className = "country_photographer";
 
-    //Prix
-    const priceElement = document.createElement("p");
-    priceElement.textContent = price + "€ /jour";
-    priceElement.className = "price";
+  //Situation Pro
+  const taglineElement = document.createElement("p");
+  taglineElement.textContent = tagline;
+  taglineElement.className = "tagline";
 
-    // Lien vers le portefolio
-    const link = document.createElement("a");
-    link.href = `./photographer.html?id=${id}`;
+  //Prix
+  const priceElement = document.createElement("p");
+  priceElement.textContent = price + "€ /jour";
+  priceElement.className = "price";
 
-    //Rattachement au parent
-    article.appendChild(img);
-    article.appendChild(h2);
-    article.appendChild(countryElement);
-    article.appendChild(taglineElement);
-    article.appendChild(priceElement);
-    link.appendChild(article);
-    return link;
-  }
-  return { name, picture, getUserCardDOM };
+  //Rattachement au parent
+  article.appendChild(link);
+  article.appendChild(countryElement);
+  article.appendChild(taglineElement);
+  article.appendChild(priceElement);
+  return article;
 }
