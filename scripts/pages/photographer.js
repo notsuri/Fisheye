@@ -36,20 +36,22 @@ function displayData(photographer, medias) {
   imgPhotograph.src = `./assets/photographers/portrait/${photographer.portrait}`;
   imgPhotograph.alt = "Photo de Profil";
 
-  const allLike = like.querySelector(".all_likes");
-  allLike.textContent = medias.likes;
-
   const priceDay = like.querySelector(".price_day");
   priceDay.textContent = photographer.price;
 
+  let totalLike = 0;
   medias.forEach((media) => {
     const card = cardMedia(media);
+    totalLike = totalLike + media.likes;
     galery.appendChild(card);
   });
+  const allLike = like.querySelector(".all_likes");
+  allLike.textContent = totalLike;
 }
 
 function cardMedia(media) {
   const { id, photographerId, title, image, likes, date, price, video } = media;
+  const icon = '<i class="fa-solid fa-heart"></i>';
 
   const picture = `assets/photographers/media/${photographerId}/${image}`;
 
@@ -63,24 +65,25 @@ function cardMedia(media) {
   img.className = "img_media";
 
   //Nom
+
+  // like
+  const likeMedia = document.createElement("div");
+  likeMedia.className = "likes_media";
   const titleMedia = document.createElement("h2");
   titleMedia.textContent = title;
   titleMedia.className = "title_media";
-
-  // like
-  const likeMedia = document.createElement("p");
-  likeMedia.textContent = likes;
-  likeMedia.classList = "likes_media";
-
-  // heart
-  const heartMedia = document.createElement("p");
-  heartMedia.textContent = "";
-  heartMedia.className = "heart_media";
+  likeMedia.appendChild(titleMedia);
+  const likePicture = document.createElement("span");
+  likePicture.textContent = likes;
+  likePicture.className = "like_picture";
+  likeMedia.appendChild(likePicture);
+  const likeClick = document.createElement("button");
+  likeClick.innerHTML = icon;
+  likeClick.className = "like_click";
+  likeMedia.appendChild(likeClick);
 
   article.appendChild(img);
-  article.appendChild(titleMedia);
   article.appendChild(likeMedia);
-  article.appendChild(heartMedia);
   return article;
 }
 init();

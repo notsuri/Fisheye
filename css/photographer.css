@@ -149,6 +149,45 @@ form input {
 }
 
 /* CARD MEDIA  */
-.img_media {
-  height: 150px;
+
+.photograph_medias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0 100px 100px;
+  gap: 30px 95px;
+}
+.photograph_medias .img_media {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.photograph_medias .likes_media {
+  display: flex;
+  justify-content: space-between;
+  color: var(--primary-color);
+}
+.photograph_medias .title_media {
+  display: flex;
+  justify-content: space-between;
+  color: var(--primary-color);
+  margin: 0;
+  font-size: 28px;
+  padding: 10px 0;
+}
+
+.like_picture {
+  font-size: 23px;
+}
+
+.like_click {
+  font-weight: 100;
+  font-size: 23px;
+  color: var(--primary-color);
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.like_click:hover {
+  font-weight: 900;
 }
