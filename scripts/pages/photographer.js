@@ -51,7 +51,7 @@ function displayData(photographer, medias) {
 
 function cardMedia(media) {
   const { id, photographerId, title, image, likes, date, price, video } = media;
-  const icon = '<i class="fa-solid fa-heart"></i>';
+  // const icon = '<i class="fa-solid fa-heart"></i>';
 
   const picture = `assets/photographers/media/${photographerId}/${image}`;
 
@@ -67,23 +67,26 @@ function cardMedia(media) {
   //Nom
 
   // like
-  const likeMedia = document.createElement("div");
-  likeMedia.className = "likes_media";
+  const cardBody = document.createElement("div");
+  cardBody.className = "card_body";
   const titleMedia = document.createElement("h2");
   titleMedia.textContent = title;
   titleMedia.className = "title_media";
-  likeMedia.appendChild(titleMedia);
+  cardBody.appendChild(titleMedia);
+  const likeMedia = document.createElement("div");
+  likeMedia.className = "like_media";
+  cardBody.appendChild(likeMedia);
   const likePicture = document.createElement("span");
   likePicture.textContent = likes;
   likePicture.className = "like_picture";
   likeMedia.appendChild(likePicture);
   const likeClick = document.createElement("button");
-  likeClick.innerHTML = icon;
+  likeClick.innerHTML = '<i class="fa-solid fa-heart"></i>';
   likeClick.className = "like_click";
   likeMedia.appendChild(likeClick);
 
   article.appendChild(img);
-  article.appendChild(likeMedia);
+  article.appendChild(cardBody);
   return article;
 }
 init();

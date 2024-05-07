@@ -162,21 +162,25 @@ form input {
   object-fit: cover;
   border-radius: 10px;
 }
-.photograph_medias .likes_media {
+.photograph_medias .card_body {
   display: flex;
   justify-content: space-between;
   color: var(--primary-color);
 }
 .photograph_medias .title_media {
-  display: flex;
-  justify-content: space-between;
   color: var(--primary-color);
   margin: 0;
   font-size: 28px;
   padding: 10px 0;
 }
 
+.like_media {
+  display: flex;
+}
+
 .like_picture {
+  display: flex;
+  align-items: center;
   font-size: 23px;
 }
 
@@ -187,6 +191,10 @@ form input {
   border: none;
   background: none;
   cursor: pointer;
+}
+.like_click i .fa-heart {
+  background: #eee;
+  border: 1px solid red;
 }
 .like_click:hover {
   font-weight: 900;
