@@ -1,3 +1,4 @@
+import { MediaFactory } from "../factory/modelFactory.js";
 async function getPhotographerById(id) {
   const response = await fetch("../data/photographers.json");
   const data = await response.json();
@@ -51,20 +52,12 @@ function displayData(photographer, medias) {
 
 function cardMedia(media) {
   const { id, photographerId, title, image, likes, date, price, video } = media;
-  // const icon = '<i class="fa-solid fa-heart"></i>';
-
-  const picture = `assets/photographers/media/${photographerId}/${image}`;
 
   const article = document.createElement("article");
   article.className = "card_media";
 
-  //Photo
-  const img = document.createElement("img");
-  img.src = picture;
-  img.alt = title;
-  img.className = "img_media";
-
-  //Nom
+  const mediaContainer = new MediaFactory(media);
+  // mediaContainer.addEventListener("click",openLigthbox(media));
 
   // like
   const cardBody = document.createElement("div");
@@ -85,7 +78,7 @@ function cardMedia(media) {
   likeClick.className = "like_click";
   likeMedia.appendChild(likeClick);
 
-  article.appendChild(img);
+  article.appendChild(mediaContainer);
   article.appendChild(cardBody);
   return article;
 }
