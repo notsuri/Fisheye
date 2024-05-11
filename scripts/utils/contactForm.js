@@ -7,13 +7,14 @@ const form = modal.querySelector(".contact_form");
 btnContact.addEventListener("click", () => {
   modal.style.display = "block";
 });
+
 // ferme la modal de contact
 closeModal.addEventListener("click", () => {
   modal.style.display = "none";
 });
 
-form.addEventListener("submit", (f) => {
-  f.preventDefault();
+form.addEventListener("submit", (s) => {
+  s.preventDefault();
 
   const firstName = form.querySelector("#firstname").value;
   const lastName = form.querySelector("#lastname").value;

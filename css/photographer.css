@@ -26,9 +26,11 @@
 }
 
 .modal {
+  position: relative;
   border-radius: 5px;
   background-color: #db8876;
-  width: 50%;
+  width: 100%;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
