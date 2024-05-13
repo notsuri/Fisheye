@@ -30,6 +30,15 @@
 
     </div>
 
+    <div class="dropdown">
+      <button class="dropdown_btn">Trier par</button>
+      <ul class="hidden dropdown_list">
+        <li class="dropdown_item">Popularité</li>
+        <li class="dropdown_item">Date</li>
+        <li class="dropdown_item">Titre</li>
+      </ul>
+
+    </div>
 
     <section class="photograph_filter">
       <label>Tier par</label>
@@ -55,7 +64,7 @@
   </main>
 
 
-  <div id="contact_modal">
+  <dialog id="contact_modal">
     <div class="modal">
       <header>
         <h2>Contactez-moi</h2>
@@ -83,8 +92,26 @@
         <button class="form-btn" tabindex="10">Envoyer</button>
       </form>
     </div>
-  </div>
+  </dialog>
 
+  <dialog id="lightbox">
+    <div class="container_lightbox">
+      <figure class="figure"></figure>
+      <button class="previous">
+        <span class="fa-solid fa-angle-left"></span>
+        <span id="previous_lightbox">Précédent</span>
+      </button>
+      </button>
+      <button class="next" type="button">
+        <span class="fa-solid fa-angle-right"></span>
+        <span id="next_lightbox">Suivant</span>
+      </button>
+      <button class="close">
+        <span class="fa-solid fa-xmark"></span>
+        <span id="close_lightbox">Fermer la modale</span>
+      </button>
+    </div>
+  </dialog>
   </div>
   </div>
   <script src="https://kit.fontawesome.com/49bfbf4882.js" crossorigin="anonymous"></script>

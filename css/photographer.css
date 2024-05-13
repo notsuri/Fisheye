@@ -2,9 +2,6 @@
   width: 1600px;
   margin: auto;
 }
-#contact_modal {
-  display: none;
-}
 
 .photograph_header {
   background-color: #fafafa;
@@ -26,7 +23,6 @@
 }
 
 .modal {
-  position: relative;
   border-radius: 5px;
   background-color: #db8876;
   width: 100%;
@@ -200,4 +196,19 @@ form input {
 }
 .like_click:hover {
   font-weight: 900;
+}
+
+.dropdown {
+  position: relative;
+}
+.dropdown_list {
+  position: absolute;
+  display: none;
+}
+.dropdown:hover .dropdown_list {
+  display: block;
+}
+
+x.hidden {
+  display: none;
 }

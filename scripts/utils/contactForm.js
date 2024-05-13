@@ -5,12 +5,12 @@ const form = modal.querySelector(".contact_form");
 
 // affiche la modal au click du btn contactez-moi
 btnContact.addEventListener("click", () => {
-  modal.style.display = "block";
+  modal.showModal();
 });
 
 // ferme la modal de contact
 closeModal.addEventListener("click", () => {
-  modal.style.display = "none";
+  modal.close();
 });
 
 form.addEventListener("submit", (s) => {
@@ -22,5 +22,5 @@ form.addEventListener("submit", (s) => {
   const message = form.querySelector("#message").value;
 
   console.log(firstName, lastName, email, message);
-  modal.style.display = "none";
+  modal.close();
 });
