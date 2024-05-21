@@ -1,5 +1,5 @@
 import { MediaFactory } from "../factory/MediaFactory.js";
-// import { Ligthbox } from "../utils/lightbox.js";
+import { Ligthbox } from "../components/Lightbox.js";
 
 let lightbox = null;
 
@@ -21,13 +21,35 @@ async function init() {
   const id = searchParams.get("id");
   const photographer = await getPhotographerById(id);
   const medias = await getMediasByPhotographerId(id);
+
+  const popularityFilter = document.querySelector(
+    ".photograph_filter select option:nth-of-type(1)"
+  );
+  popularityFilter.addEventListener("click", sort(medias, "likes"));
+  console.log(popularityFilter);
+  lightbox = new Ligthbox();
+  displayData(photographer, medias);
+
+  const datesFilter = document.querySelector(
+    ".photograph_filter select option:nth-of-type(2)"
+  );
+  datesFilter.addEventListener("click", sort(medias, "dates"));
+  console.log(datesFilter);
+  lightbox = new Ligthbox();
+  displayData(photographer, medias);
+
+  const titlesFilter = document.querySelector(
+    ".photograph_filter select option:nth-of-type(2)"
+  );
+  titlesFilter.addEventListener("click", sort(medias, "titles"));
+  console.log(titlesFilter);
   lightbox = new Ligthbox();
   displayData(photographer, medias);
 }
+
 function displayData(photographer, medias) {
   const head = document.querySelector(".photograph_header");
   const like = document.querySelector(".photograph_like");
-  const galery = document.querySelector(".photograph_medias");
 
   const namePhotograph = head.querySelector(".photograph_title");
   namePhotograph.textContent = photographer.name;
@@ -41,25 +63,13 @@ function displayData(photographer, medias) {
   const imgPhotograph = head.querySelector(".photograph_img");
   imgPhotograph.src = `./assets/photographers/portrait/${photographer.portrait}`;
   imgPhotograph.alt = "Photo de Profil";
-
-  const priceDay = like.querySelector(".price_day");
-  priceDay.textContent = photographer.price;
-
-  let totalLike = 0;
-  medias.forEach((media, index) => {
-    const card = cardMedia(media);
-    totalLike = totalLike + media.likes;
-
-    card.addEventListener("click", (e) => {
-      e.preventDefault();
-      lightbox.show(medias, index);
-    });
-    galery.appendChild(card);
-  });
+  console.log(photographer);
+  const totalLike = displayGallery(medias, photographer);
   const allLike = like.querySelector(".all_likes");
   allLike.textContent = totalLike;
+  const priceDay = like.querySelector(".price_day");
+  priceDay.textContent = photographer.price;
 }
-
 function cardMedia(media) {
   const { id, photographerId, title, image, likes, date, price, video } = media;
 
@@ -93,60 +103,56 @@ function cardMedia(media) {
 }
 init();
 
-// Ligthbox
-export class Ligthbox {
-  constructor(selector = "#lightbox") {
-    this.target = document.querySelector(selector);
-    this.figure = this.target.querySelector(".figure");
-    this.medias = [];
-    this.current = -1;
+//TRIER
 
-    this.target.querySelector(".close").addEventListener("click", (e) => {
-      console.log("close");
+function sortBy(medias, by) {
+  switch (by) {
+    case "likes":
+      medias.sort((m1, m2) => {
+        return m1.likes - m2.likes;
+      });
+      break;
+    case "titles":
+      medias.sort((media1, media2) => {
+        if (media1.title > media2.title) {
+          return +1;
+        } else if (media1.title < media2.title) {
+          return -1;
+        } else {
+          return 0;
+        }
+      });
+      break;
+    case "dates":
+      medias.sort((media1, media2) => {
+        return (
+          new Date(media2.date).getTime() - new Date(media1.date).getTime()
+        );
+      });
+      break;
+  }
+}
+//Afficher les cards grace a une boucle
+function displayGallery(medias, photographer) {
+  console.log(photographer);
+  let totalLike = 0;
+  const gallery = document.querySelector(".photograph_medias");
+
+  medias.forEach((media, index) => {
+    const card = cardMedia(media);
+    totalLike = totalLike + media.likes;
+
+    card.addEventListener("click", (e) => {
       e.preventDefault();
-      this.close();
+      lightbox.show(medias, index);
     });
-    this.target.querySelector(".previous").addEventListener("click", (e) => {
-      e.preventDefault();
-      this.previous();
-    });
-    this.target.querySelector(".next").addEventListener("click", (e) => {
-      e.preventDefault();
-      this.next();
-    });
-  }
+    gallery.appendChild(card);
+  });
+  return totalLike;
+}
 
-  show(medias, index) {
-    this.medias = medias;
-    this.update(index);
-    this.target.showModal();
-  }
-  close() {
-    this.target.close();
-  }
-
-  next() {
-    this.update(this.current + 1);
-  }
-
-  previous() {
-    this.update(this.current - 1);
-  }
-
-  update(index) {
-    if (index < 0) {
-      index = 0;
-    } else if (index >= this.medias.length) {
-      index = this.medias.length - 1;
-    }
-    this.current = index;
-    const media = this.medias[this.current];
-    this.figure.innerHTML = "";
-    const figcaption = document.createElement("figcaption");
-    figcaption.textContent = media.title;
-    figcaption.tabIndex = "3";
-    figcaption.className = "alt";
-    this.figure.appendChild(new MediaFactory(media, false));
-    this.figure.appendChild(figcaption);
-  }
+function sort(medias, by) {
+  sortBy(medias, by);
+  document.querySelector(".photograph_medias").innerHTML = "";
+  displayGallery(medias);
 }
