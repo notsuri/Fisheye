@@ -8,7 +8,6 @@ export class Ligthbox {
     this.current = -1;
 
     this.target.querySelector(".close").addEventListener("click", (e) => {
-      console.log("close");
       e.preventDefault();
       this.close();
     });

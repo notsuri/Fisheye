@@ -30,7 +30,7 @@
 
     </div>
 
-    <div class="dropdown">
+    <!-- <div class="dropdown">
       <button class="dropdown_btn">Trier par</button>
       <ul class="hidden dropdown_list">
         <li class="dropdown_item">Popularité</li>
@@ -38,14 +38,14 @@
         <li class="dropdown_item">Titre</li>
       </ul>
 
-    </div>
+    </div> -->
 
     <section class="photograph_filter">
       <label>Tier par</label>
       <select>
-        <option>Popularité</option>
-        <option>Date</option>
-        <option>Titre</option>
+        <option value="likes">Popularité</option>
+        <option value="dates">Date</option>
+        <option value="titles">Titre</option>
       </select>
     </section>
 
@@ -55,7 +55,7 @@
     <aside class="photograph_like">
       <div>
         <span class="all_likes"></span>&nbsp;
-        <span class="fa-solid fa-heart" aria-hidden="true"></span>
+        <span class="fa-solid fa-heart liked" aria-hidden="true"></span>
       </div>
       <div>
         <span class="price_day"></span>&nbsp;€&nbsp;/&nbsp;jour
@@ -64,32 +64,36 @@
   </main>
 
 
-  <dialog id="contact_modal">
-    <div class="modal">
-      <header>
-        <h2>Contactez-moi</h2>
-        <img src="assets/icons/close.svg" id="close_modal" />
+  <dialog id="contact_modal" class="overlay_modal">
+    <div class="modal" tabindex="1">
+      <header class="modal_header">
+        <h2 class="modal_title" tabindex="2">Contactez-moi
+          <br>
+          <span class="title_photograph"></span>
+        </h2>
+        <button class="btn-closes" id="close_modal" aria-label="close modal" tabindex="12">
+          <img src="assets/icons/close.svg" alt="" aria-hidden="true">
+        </button>
       </header>
-
       <form class="contact_form">
-        <div class="input-form">
-          <label for="firstname">Prénom</label>
-          <input type="text" id="firstname" placeholder="Votre Prénom">
+        <div class="input-group">
+          <label tabindex="3" for="firstname">Prénom</label>
+          <input tabindex="4" type="text" id="firstname" placeholder="Votre prénom">
         </div>
-        <div class="input-form">
-          <label for="lastname">Nom</label>
-          <input type="text" id="lastname" placeholder="Votre nom">
+        <div class="input-group">
+          <label tabindex="5" for="lastname">Nom</label>
+          <input tabindex="6" type="text" id="lastname" placeholder="Votre nom">
         </div>
-        <div class="input-form">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="Votre email" required aria-required="true">
+        <div class="input-group">
+          <label tabindex="7" for="email">Email</label>
+          <input tabindex="8" type="email" id="email" placeholder="Votre email" required aria-required="true">
         </div>
-        <div class="input-form">
-          <label for="message">Votre message</label>
-          <textarea name="message" id="message" rows="10" placeholder="Votre message" required
+        <div class="input-group">
+          <label tabindex="9" for="message">Votre message</label>
+          <textarea tabindex="10" name="message" id="message" rows="10" placeholder="Votre message" required
             aria-required="true"></textarea>
         </div>
-        <button class="form-btn" tabindex="10">Envoyer</button>
+        <button class="contact_button" tabindex="11">Envoyer</button>
       </form>
     </div>
   </dialog>
