@@ -30,20 +30,11 @@
   left: 0;
   position: fixed;
 }
-.modal {
-  position: fixed;
-  top: 4vw;
-  left: 30vw;
-  width: 30vw;
-  height: 75vh;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  padding: 50px;
-  z-index: 10;
-}
+
 .modal_header {
   display: block;
+  position: relative;
+  margin-bottom: 30px;
 }
 .modal_header .modal_title {
   text-align: left;
@@ -56,9 +47,11 @@
   width: 40px;
   height: 40px;
   position: absolute;
-  top: 50px;
-  right: 30px;
+  top: 16px;
+  right: 0;
   cursor: pointer;
+  border: none;
+  background-color: transparent;
 }
 .contact_form {
   padding-top: 40px;
@@ -68,7 +61,7 @@
   margin: 0;
 }
 .contact_form label {
-  font-size: 30px;
+  font-size: 40px;
 }
 .contact_form input {
   height: 60px;

@@ -43,9 +43,13 @@ async function init() {
 function displayData(photographer, medias) {
   const head = document.querySelector(".photograph_header");
   const like = document.querySelector(".photograph_like");
+  const modal = document.querySelector(".overlay_modal");
 
   const namePhotograph = head.querySelector(".photograph_title");
   namePhotograph.textContent = photographer.name;
+
+  const titlePhotograph = modal.querySelector(".title_photograph");
+  titlePhotograph.textContent = photographer.name;
 
   const cityPhotograph = head.querySelector(".photograph_city");
   cityPhotograph.textContent = photographer.city + ", " + photographer.country;
