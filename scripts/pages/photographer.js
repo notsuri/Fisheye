@@ -4,13 +4,13 @@ import { Ligthbox } from "../components/Lightbox.js";
 let lightbox = null;
 
 async function getPhotographerById(id) {
-  const response = await fetch("../data/photographers.json");
+  const response = await fetch("./data/photographers.json");
   const data = await response.json();
   return data.photographers.find((photographer) => photographer.id == id);
 }
 
 async function getMediasByPhotographerId(id) {
-  const response = await fetch("../data/photographers.json");
+  const response = await fetch("./data/photographers.json");
   const data = await response.json();
   return data.media.filter((media) => id == media.photographerId);
 }
