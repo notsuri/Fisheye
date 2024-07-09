@@ -1,4 +1,4 @@
-import { MediaFactory } from "./scripts/factory/MediaFactory.js";
+import { MediaFactory } from "../factory/MediaFactory.js";
 
 export class Ligthbox {
   constructor(selector = "#lightbox") {
