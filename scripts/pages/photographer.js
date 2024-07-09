@@ -1,6 +1,5 @@
-import { MediaFactory } from "./scripts/factory/MediaFactory.js";
-import { Ligthbox } from "./scripts/components/lightbox.js";
-
+import { MediaFactory } from "../factory/MediaFactory.js";
+import { Ligthbox } from "../components/Lightbox.js";
 let lightbox = null;
 
 async function getPhotographerById(id) {
