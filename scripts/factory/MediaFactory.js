@@ -1,6 +1,6 @@
 // FACTORY
-import { Video } from "../model/Video.js";
-import { Image } from "../model/Image.js";
+import { Video } from "../model/video.js";
+import { Image } from "../model/image.js";
 export class MediaFactory {
   constructor(data) {
     if (data.image) {
