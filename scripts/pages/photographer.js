@@ -1,5 +1,5 @@
 import { MediaFactory } from "./scripts/factory/MediaFactory.js";
-import { Ligthbox } from "./scripts/components/Lightbox.js";
+import { Ligthbox } from "./scripts/components/lightbox.js";
 
 let lightbox = null;
 
